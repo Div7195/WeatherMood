@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <!-- Location input field -->
+    <TextView
+        android:id="@+id/location_label"
+        android:layout_width="match_parent"
+        android:layout_marginTop="0dp"
+        android:textSize="20dp"
+        android:layout_height="wrap_content"
+        android:text="Set Default Location"/>
+
+    <EditText
+        android:id="@+id/defaultLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="15dp"
+        android:hint="Enter default location"/>
+
+    <!-- Auto refresh toggle switch -->
+    <TextView
+        android:id="@+id/change_temp_unit"
+        android:layout_width="292dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Set Temperature Unit"
+        android:textSize="20dp" />
+    <RadioGroup
+        android:id="@+id/radioTemperature"
+        android:layout_width="380dp"
+        android:layout_height="100dp" >
+
+        <RadioButton
+            android:id="@+id/radioCelcius"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="C" />
+
+        <RadioButton
+            android:id="@+id/radioFarhen"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="F" />
+    </RadioGroup>
+    <TextView
+        android:id="@+id/change_precip_unit"
+        android:layout_width="292dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Set Precipitation Unit"
+
+        android:textSize="20dp" />
+    <RadioGroup
+        android:id="@+id/radioPrecipitation"
+        android:layout_width="380dp"
+        android:layout_height="100dp" >
+
+        <RadioButton
+            android:id="@+id/radioInches"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Inches(in)" />
+
+        <RadioButton
+            android:id="@+id/radioMillimeters"
+            android:layout_width="158dp"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Millimeters(mm)" />
+    </RadioGroup>
+    <TextView
+        android:id="@+id/change_sound_pref"
+        android:layout_width="292dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Play Sounds"
+
+        android:textSize="20dp" />
+    <RadioGroup
+        android:id="@+id/radioSounds"
+        android:layout_width="380dp"
+        android:layout_height="100dp" >
+
+        <RadioButton
+            android:id="@+id/radioYes"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Yes" />
+
+        <RadioButton
+            android:id="@+id/radioNo"
+            android:layout_width="158dp"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="No" />
+    </RadioGroup>
+
+    <!-- About button -->
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/Quadnery"
+        android:backgroundTintMode="multiply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Changes" />
+
+
+
+</LinearLayout>
