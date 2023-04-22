@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="apptour3">
+        <item>@drawable/evening1</item>
+        <item>@drawable/evening2</item>
+        <item>@drawable/evening3</item>
+        <item>@drawable/evening4</item>
+    </array>
+
+</resources>
