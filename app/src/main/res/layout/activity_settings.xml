@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scrollView"
+    android:fillViewport="true">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -13,7 +19,8 @@
         android:layout_marginTop="0dp"
         android:textSize="20dp"
         android:layout_height="wrap_content"
-        android:text="Set Default Location"/>
+        android:text="Set Default Location"
+        />
 
     <EditText
         android:id="@+id/defaultLocation"
@@ -21,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:padding="15dp"
+        android:backgroundTint="#FFA500"
         android:hint="Enter default location"/>
 
     <!-- Auto refresh toggle switch -->
@@ -40,6 +48,7 @@
             android:id="@+id/radioCelcius"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:buttonTint="#FFA500"
             android:checked="true"
             android:text="C" />
 
@@ -47,6 +56,7 @@
             android:id="@+id/radioFarhen"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:buttonTint="#FFA500"
             android:checked="false"
             android:text="F" />
     </RadioGroup>
@@ -67,6 +77,7 @@
             android:id="@+id/radioInches"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:buttonTint="#FFA500"
             android:checked="true"
             android:text="Inches(in)" />
 
@@ -74,6 +85,7 @@
             android:id="@+id/radioMillimeters"
             android:layout_width="158dp"
             android:layout_height="wrap_content"
+            android:buttonTint="#FFA500"
             android:checked="false"
             android:text="Millimeters(mm)" />
     </RadioGroup>
@@ -88,19 +100,22 @@
     <RadioGroup
         android:id="@+id/radioSounds"
         android:layout_width="380dp"
-        android:layout_height="100dp" >
+        android:layout_height="100dp"
+        >
 
         <RadioButton
             android:id="@+id/radioYes"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Yes" />
+            android:text="Yes"
+            android:buttonTint="#FFA500"/>
 
         <RadioButton
             android:id="@+id/radioNo"
             android:layout_width="158dp"
             android:layout_height="wrap_content"
+            android:buttonTint="#FFA500"
             android:checked="false"
             android:text="No" />
     </RadioGroup>
@@ -110,8 +125,7 @@
     <Button
         android:id="@+id/save_button"
         android:layout_marginTop="5dp"
-        android:backgroundTint="@color/Quadnery"
-        android:backgroundTintMode="multiply"
+        android:backgroundTint="#FFA500"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Save Changes" />
@@ -119,3 +133,4 @@
 
 
 </LinearLayout>
+</ScrollView>

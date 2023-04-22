@@ -11,17 +11,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.Toast;
-
+import android.os.Bundle;
+import android.view.ViewTreeObserver;
+import android.widget.LinearLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
 public class SettingsActivity extends AppCompatActivity {
     private EditText defaultLocation;
     private RadioGroup radioTemperatureGroup, radioPrecipitationGroup, radioSoundsGroup;
     private RadioButton radioTempButton, radioPrecipitationButton, radioSoundButton;
     private Button btn;
+    private ScrollView scrollView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        scrollView = findViewById(R.id.scrollView);
         defaultLocation = findViewById(R.id.defaultLocation);
         radioTemperatureGroup = findViewById(R.id.radioTemperature);
         radioPrecipitationGroup = findViewById(R.id.radioPrecipitation);
@@ -44,6 +51,12 @@ public class SettingsActivity extends AppCompatActivity {
         if(radioSoundButton != null){
             radioSoundButton.setChecked(true);
         }
+        scrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                scrollView.fullScroll(View.FOCUS_UP);
+            }
+        });
 
 //        radioThemeButton = (RadioButton)findViewById(pref.getInt("selectedPrecipRadioId", 0));
 //        if(radioThemeButton != null){

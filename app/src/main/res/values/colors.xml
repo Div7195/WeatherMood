@@ -11,4 +11,5 @@
     <color name="Quadnery">#03256C</color>
     <color name="Secondary">#06BEE1</color>
     <color name="Pale">#d4d3d3</color>
+    <color name="status_bar_color">#2AA0E9</color>
 </resources>

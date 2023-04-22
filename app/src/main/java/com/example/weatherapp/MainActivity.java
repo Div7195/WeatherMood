@@ -20,6 +20,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -27,6 +28,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -76,13 +79,21 @@ public class MainActivity extends AppCompatActivity {
     private int resID2 = 0;
     private int resID3 = 0;
     private int resID4 = 0;
+    private boolean backPressedOnce = false;
     String msgCityName, msgTemp, msgCondition, msgHumidty, msgPrecipitation, msgMaxTemp, msgMinTemp;
     String tommTemp, tommTempF, maxTommTemp, minTommTemp, maxTommTempF, minTommTempF, tommWindSpeed, tommHumidty, tommSunrise, tommPrecipIn, tommPrecipMm, tommRainChance, cityPass;
     String afterTemp, afterTempF, maxAfterTemp, minAfterTemp, maxAfterTempF, minAfterTempF, AfterWindSpeed, AfterHumidty, AfterSunrise, AfterPrecipIn, AfterPrecipMm, AfterRainChance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            ((Window) window).addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_color));
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        backPressedOnce = false;
         currentTemp = findViewById(R.id.textView_current_temp);
         humid = findViewById(R.id.textView_humidity);
         precip = findViewById(R.id.textView_precipitation);
@@ -749,17 +760,46 @@ public class MainActivity extends AppCompatActivity {
                         mp.stop();
 
                     }
-                }, 6000);
+                }, 10000);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
+    private void stopSound() {
+        if (mp != null) {
+            if (mp.isPlaying()) {
+                mp.stop();
+            }
+            mp.release();
+            mp = null;
+        }
+    }
     public void onBackPressed() {
         if (isTaskRoot()) {
-        } else {
+            if (backPressedOnce) {
+                super.onBackPressed();
+                stopSound();
+                return;
+            }
+            backPressedOnce = true;
+            Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    backPressedOnce = false;
+                }
+            }, 2000);
+        }
+        else {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
+            if (backPressedOnce) {
+                super.onBackPressed();
+                return;
+            }
+
 
         }
     }
@@ -782,6 +822,7 @@ public class MainActivity extends AppCompatActivity {
                     "SMS faild, please try again later.", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

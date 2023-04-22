@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/cardview_dark_background"
     tools:context=".MainActivity">
 
     <!--    <ProgressBar-->
@@ -24,8 +25,8 @@
             android:id="@+id/backImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@color/black"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:src="@color/black" />
 
         <TextView
             style="@style/GlassEffect"
@@ -66,7 +67,7 @@
             android:layout_height="200dp"
             android:layout_below="@+id/linearLayout"
             android:layout_alignParentStart="true"
-
+            android:padding="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="40dp"
             android:orientation="vertical">
@@ -160,14 +161,18 @@
             android:layout_height="107dp"
             android:layout_centerInParent="true"
             android:indeterminate="false" />
+
         <TextView
             android:id="@+id/detailsHeadTextView"
-            android:layout_width="match_parent"
+            style="@style/BlueGlassEffect0"
+            android:layout_width="274dp"
             android:layout_height="wrap_content"
-            style="@style/GlassEffect0"
             android:layout_alignParentStart="true"
-            android:gravity="center"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="71dp"
             android:layout_marginTop="370dp"
+            android:layout_marginEnd="79dp"
+            android:gravity="center"
             android:text="Forecast"
             android:textColor="@color/white"
             android:textSize="36sp"
@@ -181,19 +186,20 @@
             android:layout_below="@+id/detailsHeadTextView"
             android:layout_alignBaseline="@id/imageView_dayAfter"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="55dp"
             android:layout_marginLeft="40dp"
 
-            android:layout_marginTop="6dp"
-            />
+            android:layout_marginTop="43dp" />
 
         <ImageView
             android:id="@+id/imageView_dayAfter"
             android:layout_width="90dp"
             android:layout_height="80dp"
             android:layout_below="@+id/detailsHeadTextView"
-            android:layout_marginLeft="220dp"
-            android:layout_marginTop="6dp" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="43dp"
+            android:layout_marginEnd="51dp" />
 
         <TextView
             android:id="@+id/textView_tommorrow_temp"
@@ -201,7 +207,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageView_tomorrow"
             android:layout_alignBottom="@+id/textView_dayAfter_temp"
-            android:layout_marginLeft="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="55dp"
+            android:layout_marginLeft="55dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="0dp"
             android:fontFamily="sans-serif-medium"
@@ -216,13 +224,15 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView_tommorrow_temp"
             android:layout_alignBottom="@+id/textView_forecast_label_dayAfter"
-            android:layout_marginLeft="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="55dp"
+            android:layout_marginLeft="55dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="-9dp"
             android:fontFamily="sans-serif-medium"
+
             android:gravity="center_horizontal"
             android:text="Tomorrow"
-
             android:textColor="@color/white"
             android:textSize="15sp" />
 
@@ -231,13 +241,15 @@
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView_dayAfter_temp"
-            android:layout_marginLeft="220dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="270dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="51dp"
             android:layout_marginBottom="-46dp"
             android:fontFamily="sans-serif-medium"
+
             android:gravity="center_horizontal"
             android:text="Day After"
-
             android:textColor="@color/white"
             android:textSize="15sp" />
 
@@ -246,12 +258,14 @@
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageView_dayAfter"
-            android:layout_marginLeft="220dp"
-            android:layout_marginTop="5dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="3dp"
+
+            android:layout_marginEnd="51dp"
+
             android:fontFamily="sans-serif-medium"
-
             android:gravity="center_horizontal"
-
             android:textColor="@color/white"
             android:textSize="22sp" />
 
@@ -259,15 +273,17 @@
             android:id="@+id/refreshButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="530dp"
-            android:gravity="center"
-            android:contentDescription="Refresh Button"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="630dp"
 
-            android:src="@drawable/refresh_image"
-             />
+            android:layout_marginEnd="50dp"
+            android:contentDescription="Refresh Button"
+            android:gravity="center"
+            android:src="@drawable/refresh_image" />
 
 
     </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>
