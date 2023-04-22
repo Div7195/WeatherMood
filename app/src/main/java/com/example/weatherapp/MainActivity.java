@@ -755,6 +755,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    public void onBackPressed() {
+        if (isTaskRoot()) {
+        } else {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+
+        }
+    }
     protected void sendSMS(String msgBody) {
         Log.i("Send SMS", "");
 
@@ -766,7 +774,8 @@ public class MainActivity extends AppCompatActivity {
             smsIntent.putExtra("address"  , "");
             smsIntent.putExtra("sms_body"  , msgBody);
             startActivity(smsIntent);
-            finish();
+
+
             Log.i("Finished sending SMS...", "");
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(MainActivity.this,
@@ -795,6 +804,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.share:
                 String msgBody = ( "Today's Weather\nCity: "+msgCityName+"\nTemperture: "+msgTemp+"°C\nMax/Min Temp: "+msgMaxTemp+"°C/"+msgMinTemp+"°C\nCondition: "+msgCondition+"\nHumidity: "+msgHumidty+"%\nPrecipitation: "+msgPrecipitation+"in");
                 sendSMS(msgBody);
+                onBackPressed();
         }
         return super.onOptionsItemSelected(item);
     }
