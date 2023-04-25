@@ -74,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
     String playSoundGlobal;
     private final static int REQUEST_CODE = 100;
     private final String apiUrl = "https://api.weatherapi.com/v1/forecast.json";
-    private final String apiKey = "9cabe1f6815145c98a2142339231304";
+    private final String apiKey = "c818478c5cea4ddab5545407232504";
+//     private final String apiKey = "9cabe1f6815145c98a2142339231304";
     private int resID1 = 0;
     private int resID2 = 0;
     private int resID3 = 0;
