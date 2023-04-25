@@ -362,28 +362,43 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                         humid.setText("Humidity: " + String.valueOf(humidity) + "%");
                                         city.setText(cityName + ", " + countryName);
-                                        if(condition0.equals("Patchy light rain with thunder")){
-                                            conditionView.setText("Thunder");
+                                        if(condition0.contains("thunder") || condition0.contains("Thunder")){
+                                            conditionView.setText("Rain with thunder");
                                         }else {
                                             conditionView.setText(condition0);
                                         }
+
                                         if (condition0.equals("Mist")) {
-                                            imageToday.setImageResource(R.drawable.mist);
-                                            playSound(R.raw.cloudysound);
+                                            if((localTimeInt >= 19 && localTimeInt <= 23) || localTimeInt < 5){
+                                                imageToday.setImageResource(R.drawable.mist);
+                                                playSound(R.raw.clearsound);
+                                            }else {
+                                                imageToday.setImageResource(R.drawable.mist);
+                                                playSound(R.raw.cloudysound);
+                                            }
 
                                         } else if (condition0.contains("rain") || condition0.contains("Rain")) {
                                             imageToday.setImageResource(R.drawable.rain);
                                             playSound(R.raw.thunder);
 
-                                        } else if (condition0.contains("cloud") || condition0.contains("Cloud")  ) {
-                                            conditionView.setText("Cloudy");
-                                            imageToday.setImageResource(R.drawable.cloud);
-                                            playSound(R.raw.cloudysound);
+                                        } else if (condition0.contains("cloud") || condition0.contains("Cloud")) {
+                                            if((localTimeInt >= 19 && localTimeInt <= 23) || localTimeInt < 5){
+                                                conditionView.setText("Cloudy");
+                                                imageToday.setImageResource(R.drawable.cloud);
+                                                playSound(R.raw.clearsound);
+                                            }else {
+                                                conditionView.setText("Cloudy");
+                                                imageToday.setImageResource(R.drawable.cloud);
+                                                playSound(R.raw.cloudysound);
+                                            }
                                         } else if (condition0.equals("Clear")) {
                                             imageToday.setImageResource(R.drawable.clear);
                                             playSound(R.raw.clearsound);
                                         } else if (condition0.equals("Overcast")) {
                                             imageToday.setImageResource(R.drawable.overcast);
+                                            playSound(R.raw.mistsound);
+                                        }else if (condition0.contains("snow")) {
+                                            imageToday.setImageResource(R.drawable.snow);
                                             playSound(R.raw.mistsound);
                                         } else {
                                             imageToday.setImageResource(R.drawable.sunny);
@@ -661,32 +676,36 @@ public class MainActivity extends AppCompatActivity {
                             }
                             humid.setText("Humidity: " + String.valueOf(humidity) + "%");
                             city.setText(cityName+", "+countryName);
-                            if(conditionday0.equals("Patchy light rain with thunder")){
+
+                            if(conditionday0.contains("Thunder") || conditionday0.contains("thunder")){
                                 conditionView.setText("Thunder");
                             }else {
                                 conditionView.setText(conditionday0);
                             }
                             if(conditionday0.equals("Mist")){
                                 imageToday.setImageResource(R.drawable.mist);
-                                playSound(R.raw.cloudysound);
+//                                playSound(R.raw.cloudysound);
                             } else if (conditionday0.contains("rain") || conditionday0.contains("Rain")) {
                                 imageToday.setImageResource(R.drawable.rain);
-                                playSound(R.raw.thunder);
+//                                playSound(R.raw.thunder);
                             }
                             else if (conditionday0.equals("Clear")) {
                                 imageToday.setImageResource(R.drawable.clear);
-                                playSound(R.raw.clearsound);
+//                                playSound(R.raw.clearsound);
                             }
                             else if (conditionday0.contains("cloud") || conditionday0.contains("Cloud") ) {
                                 imageToday.setImageResource(R.drawable.cloud);
                                 conditionView.setText("Cloudy");
-                                playSound(R.raw.cloudysound);
+//                                playSound(R.raw.cloudysound);
                             } else if (conditionday0.equals("Overcast")) {
                                 imageToday.setImageResource(R.drawable.overcast);
-                                playSound(R.raw.mistsound);
-                            }else{
+//                                playSound(R.raw.mistsound);
+                            } else if (conditionday0.contains("snow")) {
+                                imageToday.setImageResource(R.drawable.snow);
+//                                playSound(R.raw.mistsound);
+                            } else{
                                 imageToday.setImageResource(R.drawable.sunny);
-                                playSound(R.raw.sunnysound);
+//                                playSound(R.raw.sunnysound);
                             }
                             if(conditionday1.equals("Mist")){
                                 imageTomorrow.setImageResource(R.drawable.mist);
@@ -761,7 +780,7 @@ public class MainActivity extends AppCompatActivity {
                         mp.stop();
 
                     }
-                }, 10000);
+                }, 6000);
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -213,16 +213,26 @@ public class SearchActivity extends AppCompatActivity {
 //                            Toast.makeText(SearchActivity.this, cityName+countryName+" "+String.valueOf(firstDayTemp_c)+" "+String.valueOf(secondDayTemp_c),Toast.LENGTH_SHORT).show();
 
                             if(condition0.equals("Mist")){
-                                playSound(R.raw.cloudysound);
+                                if(localTimeInt >= 19 && localTimeInt <= 23 || localTimeInt < 5){
+                                    playSound(R.raw.clearsound);
+                                }else {
+                                    playSound(R.raw.cloudysound);
+                                }
                             } else if (condition0.contains("rain") || condition0.contains("Rain")) {
                                 playSound(R.raw.thunder);
                             } else if (condition0.contains("cloud") || condition0.contains("Cloud")) {
-                                playSound(R.raw.cloudysound);
+                                if(localTimeInt >= 19 && localTimeInt <= 23 || localTimeInt < 5){
+                                    playSound(R.raw.clearsound);
+                                }else {
+                                    playSound(R.raw.cloudysound);
+                                }
                             } else if (condition0.equals("Clear")) {
                                 playSound(R.raw.clearsound);
                             }else if(condition0.equals("Overcast")){
                                 playSound(R.raw.mistsound);
-                            }else{
+                            } else if (condition0.contains("snow")) {
+                                playSound(R.raw.mistsound);
+                            } else{
                                 playSound(R.raw.sunnysound);
                             }
 
