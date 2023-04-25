@@ -45,8 +45,8 @@ public class SearchActivity extends AppCompatActivity {
     MediaPlayer mp;
     String playSoundGlobal;
     private final String apiUrl = "https://api.weatherapi.com/v1/forecast.json";
-    private final String apiKey = "9cabe1f6815145c98a2142339231304";
-//    ################################################################################
+    private final String apiKey = "c818478c5cea4ddab5545407232504";
+//    ################################################################################ 9cabe1f6815145c98a2142339231304 
 
     public boolean ifItemClicked = false;
     String topHistoryItem = "";
