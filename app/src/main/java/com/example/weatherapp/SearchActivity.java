@@ -301,7 +301,7 @@ public class SearchActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), "No matching location found", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "No matching location found or Network problem", Toast.LENGTH_SHORT).show();
                         loadingViewSearch.setVisibility(View.GONE);
                     }
                 });
