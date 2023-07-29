@@ -8,3 +8,4 @@ This Android application is a weather app that allows users to get weather detai
 - Plays different sounds according to the condition of the weather fetched from the API
 - Share the details of the weather via SMS to contacts
 - Show different background images according to the time of the location for which the weather was fetched
+- User can set default location, set preferred units for temperature, precipitation, etc.
